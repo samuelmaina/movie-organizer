@@ -1,7 +1,7 @@
 /*
 
-your name header here
-
+Samuel Maina Wanjiru
+COM/34/18
 */
 
 /*libraries*/
@@ -29,7 +29,14 @@ int readTheStatedNumberOfRecords(ifstream &);
 int readContentInArrayAndReturnNoOfRecordsRead(ifstream &, vector<Movie> &);
 void displayMenu();
 void getUserMenuSelectionAndPerformAction();
+void promptForDatabaseClearance();
 string readAValidFileName();
+
+int main(int argc, char const *argv[])
+{
+    getUserMenuSelectionAndPerformAction();
+    return 0;
+}
 
 class FileManipulator
 {
@@ -71,11 +78,6 @@ public:
     bool promptToLoadData();
 };
 
-int main(int argc, char const *argv[])
-{
-    getUserMenuSelectionAndPerformAction();
-    return 0;
-}
 Database::Database()
 {
 }
@@ -91,12 +93,6 @@ void Database::loadData()
     // prompt the user to have the current database  cleared if there is existing data in the database.
     if (movieArr.size() > 0)
     {
-        do
-        {
-            cout << "The movie database has some movie(s) in it. Would you like to clear it? (y(Y) or n(N)): ";
-            cin >> response;
-
-        } while (!(response == 'y' || response == 'Y' || response == 'n' || response == 'N'));
     }
     // the user does not want to clear hence no need to continue.
     if (response == 'n' || response == 'N')
